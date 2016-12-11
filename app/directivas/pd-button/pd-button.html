@@ -1,0 +1,31 @@
+<div class="pd-button">
+
+    <button class="btn btn-primary navbar-btn"
+            ng-click="salvar()"
+            ng-if="exibirBotaoSalvar !== false">
+        <i class="fa fa-floppy-o"></i>
+        Salvar
+    </button>
+
+    <button class="btn btn-danger navbar-btn"
+            ng-click="novo()"
+            ng-if="exibirBotaoNovo !== false">
+        <i class="fa fa-clipboard"></i>
+        Novo
+    </button>
+
+    <button class="btn btn-warning navbar-btn"
+            ng-click="voltar()"
+            ng-if="exibirBotaoVoltar !== false">
+        <i class="fa fa-reply-all"></i>
+        voltar
+    </button>
+
+    <button class="btn btn-danger navbar-btn"
+            ng-click="excluir()"
+            ng-if="exibirBotaoExcluir !== false">
+        <i class="fa fa-trash"></i>
+        Deletar
+    </button>
+
+</div>

@@ -1,0 +1,200 @@
+<div ng-controller="CadastroUsuarioController as vm">
+
+    <form name="usuarioForm" novalidate>
+
+        <pd-panel class-panel="panel-danger"
+                  exibir-header="true"
+                  exibir-footer="true"
+                  desc-header="Cadastro de Usuário">
+
+            <pd-panel-body>
+
+                <div class="row">
+
+                    <div ng-class="{'has-error':usuarioForm.nmCodigo.$touched && usuarioForm.nmCodigo.$invalid}">
+
+                        <pd-input-text label="Código:"
+                                       tipo="number"
+                                       place-holder="Código"
+                                       ng-model="vm.entidade.codigo"
+                                       col-span="3"
+                                       name="nmCodigo"
+                                       estilo="width: 100px"
+                                       ng-required="true">
+                        </pd-input-text>
+
+                        <div ng-messages="usuarioForm.nmCodigo.$error"
+                             ng-if="usuarioForm.nmCodigo.$touched"
+                             class="text-danger">
+
+                            <div ng-messages-include="app/template/input-ng-messages.html"></div>
+                        </div>
+                    </div>
+
+                    <div ng-class="{'has-error':usuarioForm.nmNome.$touched && usuarioForm.nmNome.$invalid}">
+
+                        <pd-input-text label="Nome:"
+                                       tipo="text"
+                                       place-holder="Nome"
+                                       ng-model="vm.entidade.nome"
+                                       col-span="3"
+                                       name="nmNome"
+                                       estilo="width: 180px"
+                                       ng-required="true">
+                        </pd-input-text>
+
+                        <div ng-messages="usuarioForm.nmNome.$error"
+                             ng-if="usuarioForm.nmNome.$touched"
+                             class="text-danger">
+
+                            <div ng-messages-include="app/template/input-ng-messages.html"></div>
+                        </div>
+                    </div>
+
+                    <div ng-class="{'has-error':usuarioForm.nmLogin.$touched && usuarioForm.nmLogin.$invalid}">
+
+                        <pd-input-text label="Login:"
+                                       tipo="text"
+                                       place-holder="Login"
+                                       ng-model="vm.entidade.login"
+                                       col-span="3"
+                                       name="nmLogin"
+                                       estilo="width: 180px"
+                                       ng-required="true">
+                        </pd-input-text>
+
+                        <div ng-messages="usuarioForm.nmLogin.$error"
+                             ng-if="usuarioForm.nmLogin.$touched"
+                             class="text-danger">
+
+                            <div ng-messages-include="app/template/input-ng-messages.html"></div>
+                        </div>
+                    </div>
+
+                    <div ng-class="{'has-error':usuarioForm.nmEmail.$touched && usuarioForm.nmEmail.$invalid}">
+
+                        <pd-input-text label="E-Mail:"
+                                       tipo="text"
+                                       place-holder="E-Mail"
+                                       ng-model="vm.entidade.email"
+                                       col-span="3"
+                                       name="nmEmail"
+                                       estilo="width: 180px"
+                                       ng-required="true">
+                        </pd-input-text>
+
+                        <div ng-messages="usuarioForm.nmEmail.$error"
+                             ng-if="usuarioForm.nmEmail.$touched"
+                             class="text-danger">
+
+                            <div ng-messages-include="app/template/input-ng-messages.html"></div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+
+                    <div ng-class="{'has-error':usuarioForm.nmSenha1.$touched && usuarioForm.nmSenha1.$invalid}">
+
+                        <pd-input-text label="Senha:"
+                                       tipo="password"
+                                       place-holder="Senha"
+                                       ng-model="vm.entidade.senha1"
+                                       col-span="3"
+                                       name="nmSenha1"
+                                       estilo="width: 180px"
+                                       ng-required="true">
+                        </pd-input-text>
+
+                        <div ng-messages="usuarioForm.nmSenha1.$error"
+                             ng-if="usuarioForm.nmSenha1.$touched"
+                             class="text-danger">
+
+                            <div ng-messages-include="app/template/input-ng-messages.html"></div>
+                        </div>
+                    </div>
+
+                    <div ng-class="{'has-error':usuarioForm.nmSenha2.$touched && usuarioForm.nmSenha2.$invalid}">
+
+                        <pd-input-text label="Repita Senha:"
+                                       tipo="password"
+                                       place-holder="Repita Senha"
+                                       ng-model="vm.entidade.senha2"
+                                       col-span="3"
+                                       name="nmSenha2"
+                                       estilo="width: 180px"
+                                       ng-required="true">
+                        </pd-input-text>
+
+                        <div ng-messages="usuarioForm.nmSenha2.$error"
+                             ng-if="usuarioForm.nmSenha2.$touched"
+                             class="text-danger">
+
+                            <div ng-messages-include="app/template/input-ng-messages.html"></div>
+                        </div>
+                    </div>
+
+
+                    <div ng-class="{'has-error':usuarioForm.nmDtVal.$touched && usuarioForm.nmDtVal.$invalid}">
+
+                        <pd-input-text label="Data Validade:"
+                                       tipo="date"
+                                       place-holder="Data Validade"
+                                       ng-model="vm.entidade.dtVal"
+                                       col-span="3"
+                                       name="nmDtVal"
+                                       estilo="width: 150px"
+                                       ng-required="true">
+                        </pd-input-text>
+
+                        <div ng-messages="usuarioForm.nmDtVal.$error"
+                             ng-if="usuarioForm.nmDtVal.$touched"
+                             class="text-danger">
+
+                            <div ng-messages-include="app/template/input-ng-messages.html"></div>
+                        </div>
+                    </div>
+
+
+                    <pd-select
+                            label="Tipo de usuario"
+                            colspan="3"
+                            provider="vm.tpUser"
+                            ng-model="vm.entidade.tpUser"
+                            propriedade-valor="valor"
+                            propriedade-descricao="descricao"
+                            ng-required="false"
+                    >
+                    </pd-select>
+                </div>
+
+
+                <!-- Terceira linha GRID-->
+                <div class="row">
+                    <div ui-grid="vm.gridOptions" class="grid"></div>
+                </div>
+
+            </pd-panel-body>
+
+
+            <pd-panel-footer>
+                <pd-button
+                        salvar="vm.salvar()"
+                        novo="vm.novo()"
+                        voltar="vm.voltar()"
+                        excluir="vm.excluir()"
+                        exibir-botao-salvar="true"
+                        exibir-botao-novo="true"
+                        exibir-botao-voltar="true"
+                        exibir-botao-excluir="false">
+
+                </pd-button>
+
+            </pd-panel-footer>
+
+        </pd-panel>
+
+    </form>
+
+</div>

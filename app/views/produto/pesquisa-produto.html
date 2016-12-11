@@ -1,0 +1,40 @@
+<div ng-controller="PesquisaUsuario as vm">
+
+    <form name="UsuarioForm" novalidate>
+
+        <pd-panel class-panel="panel-danger"
+                  exibir-header="true"
+                  exibir-footer="true"
+                  desc-header="Pesquisa de Usuarios">
+
+            <pd-panel-body>
+
+                <div class="row">
+
+
+                </div>
+
+
+            </pd-panel-body>
+
+
+            <pd-panel-footer>
+                <pd-button
+                        salvar="vm.salvar()"
+                        novo="vm.novo()"
+                        voltar="vm.voltar()"
+                        excluir="vm.excluir()"
+                        exibir-botao-salvar="true"
+                        exibir-botao-novo="true"
+                        exibir-botao-voltar="true"
+                        exibir-botao-excluir="false">
+
+                </pd-button>
+
+            </pd-panel-footer>
+
+        </pd-panel>
+
+    </form>
+
+</div>

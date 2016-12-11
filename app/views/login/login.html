@@ -1,0 +1,49 @@
+<div ng-controller="LoginController as vm">
+
+    <form name="LoginForm" novalidate>
+{{nome}}
+
+        <pd-panel class-panel="panel-danger"
+                  exibir-header="true"
+                  exibir-footer="true"
+                  desc-header="Login">
+
+            <pd-panel-body>
+
+                <div class="row">
+
+                    <pd-input-text label="Login:"
+                                   tipo="text"
+                                   place-holder="Login"
+                                   ng-model="vm.entidade.login"
+                                   col-span="3"
+                                   name="nmLogin"
+                                   estilo="width: 180px"
+                                   ng-required="true">
+                    </pd-input-text>
+
+                </div>
+
+            </pd-panel-body>
+
+
+            <pd-panel-footer>
+                <pd-button
+                        salvar="vm.logar()"
+                        novo="vm.novo()"
+                        voltar="vm.voltar()"
+                        excluir="vm.excluir()"
+                        exibir-botao-salvar="true"
+                        exibir-botao-novo="false"
+                        exibir-botao-voltar="false"
+                        exibir-botao-excluir="false">
+
+                </pd-button>
+
+            </pd-panel-footer>
+
+        </pd-panel>
+
+    </form>
+
+</div>

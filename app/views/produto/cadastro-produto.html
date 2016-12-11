@@ -1,0 +1,62 @@
+<div ng-controller="CadastroProdutoController as vm">
+
+    <form name="produtoForm" novalidate>
+
+        <pd-panel class-panel="panel-danger"
+                  exibir-header="true"
+                  exibir-footer="true"
+                  desc-header="Cadastro de Produtos">
+
+            <pd-panel-body>
+
+                <div class="row">
+
+                    <div ng-class="{'has-error':clienteForm.nameNome.$touched && clienteForm.nameNome.$invalid}">
+
+                        <pd-input-text label="Codigo:"
+                                       tipo="text"
+                                       place-holder="Nome"
+                                       ng-model="vm.entidade.nome"
+                                       col-span="3"
+                                       name="nameNome"
+                                       estilo="width: 180px"
+                                       ng-required="true">
+                        </pd-input-text>
+
+                        <div ng-messages="clienteForm.nameNome.$error"
+                             ng-if="clienteForm.nameNome.$touched"
+                             class="text-danger">
+
+                            <div ng-messages-include="app/template/input-ng-messages.html"></div>
+                        </div>
+                    </div>
+
+
+                    <!-- Terceira linha GRID-->
+                    <div class="row">
+                        <div ui-grid="vm.gridOptions" class="grid"></div>
+                    </div>
+
+            </pd-panel-body>
+
+
+            <pd-panel-footer>
+                <pd-button
+                        salvar="vm.salvar()"
+                        novo="vm.novo()"
+                        voltar="vm.voltar()"
+                        excluir="vm.excluir()"
+                        exibir-botao-salvar="true"
+                        exibir-botao-novo="true"
+                        exibir-botao-voltar="true"
+                        exibir-botao-excluir="false">
+
+                </pd-button>
+
+            </pd-panel-footer>
+
+        </pd-panel>
+
+    </form>
+
+</div>
